@@ -15,9 +15,9 @@ Per ogni sezione: cosa accade in scena, cosa il lettore scopre, dove cresce la t
   - **Atto II (cap. 5–9, ~7.500 parole)**: indagine, immersione personale, perdita di controllo. Caterina entra lei stessa nel campo.
   - **Atto III (cap. 10–12, ~4.500 parole)**: comprensione, prezzo, scelta.
 
-- **Arco di Caterina**: chiusa nel lutto → indagine come fuga → riconoscimento di sé nel campo → scelta di posare.
-- **Arco del mistero**: pattern → struttura → causa storica → significato → ipotesi metafisica → silenzio.
-- **Arco di Pietro**: testimone solitario → mentore → complice → custode dei resti che Caterina decide di non portarsi dietro.
+- **Arco di Caterina**: chiusa nel lutto → indagine come fuga → tentazione di forzare il campo → posa delle pretese → incontro vero con Marco → pace.
+- **Arco del mistero**: pattern → struttura → causa storica → stratificazione → testimonianza di Pietro → soglia → attraversamento.
+- **Arco di Pietro**: testimone solitario → mentore → confidente → custode che finalmente riconosce di essere stato visto.
 
 ---
 
@@ -167,13 +167,14 @@ Il decoder, alle 3:18, scrive: *cortile / pozzo / marco / attesa.*
 
 **Scena**: Caterina al risveglio. Si ricorda del sogno: il cortile, sé stessa dentro, e — in lontananza, ai piedi del ballatoio — un uomo che riconosce. Marco. Lei prova a chiamarlo. Lui non si gira. Poi le si avvicina, le dice qualcosa che Caterina non sente. Si sveglia in lacrime.
 
-Va da Pietro. Glielo racconta. Pietro la lascia parlare. Quando lei tace, Pietro le dice una cosa che Caterina non vuole sentire: *"Quello che hai visto è ciò che porti tu. Non è lui."*
+Va da Pietro. Glielo racconta. Pietro la lascia parlare. Quando lei tace, Pietro le dice una cosa che a Caterina suona ambigua: *"Quello che hai visto al primo livello è quasi sempre il tuo riflesso. Ma sotto il riflesso, a volte, c'è una porta. Devi cambiare la domanda."*
 
 **Cosa il lettore scopre**:
-- Pietro espone (per la prima volta) la regola fondamentale del campo: riflette, non comunica.
-- Caterina rifiuta. La verità non le basta.
+- Pietro accenna per la prima volta a un "livello sotto" — senza spiegare. Caterina lo registra ma non sa cosa farsene.
+- La regola della *postura giusta* viene esposta in negativo: non si può comandare il campo.
+- Caterina non vuole filosofia: vuole Marco.
 
-**Tensione**: la prima vera rottura tra Caterina e Pietro. Lei se ne va.
+**Tensione**: Caterina decide segretamente di forzare il decoder. Sessioni multiple. Si sta perdendo nel tentativo di chiamare Marco a comando. Pietro la guarda fare, ma non interviene.
 
 ---
 
@@ -270,19 +271,24 @@ Caterina, dopo, si chiude in laboratorio e piange. Per la prima volta da agosto.
 **Lunghezza target**: 1.700 parole.
 **POV**: Caterina.
 **Quando**: 12 maggio.
-**Dove**: cimitero Maggiore di Milano (Musocco).
+**Dove**: cimitero Maggiore di Milano (Musocco), poi panchina al Parco Sempione.
 
-**Scena**: Caterina e Pietro vanno alla tomba di Aldo Bernardi. Riquadro 18, fila 7. Lapide modesta. Una piccola foto ovale di Aldo, sorridente. Pietro porta un mazzetto di violette (preferite di Elena, abitudine che lui ha esteso a tutte le tombe). Caterina si siede. Pietro le racconta cose che non le ha mai detto: che Elena, prima di morire, aveva chiesto a Pietro di lasciarla andare. Pietro l'aveva promesso. Pietro non aveva mantenuto. Per quindici anni aveva continuato ad aspettarla.
+**Scena**: Caterina e Pietro vanno alla tomba di Aldo Bernardi. Riquadro 18, fila 7. Lapide modesta. Una piccola foto ovale di Aldo, sorridente. Pietro porta un mazzetto di violette (preferite di Elena). Caterina si siede. Pietro le racconta cose che non le ha mai detto: che Elena, prima di morire, gli aveva chiesto di lasciarla andare. Pietro l'aveva promesso. Pietro non aveva mantenuto. Per anni aveva continuato ad aspettarla, in un appartamento che era diventato per metà un altare.
 
-Pietro le dice, qui per la prima volta, la parola: *campo*. Le dice anche la sua ipotesi più audace: che i campi locali siano frammenti di una struttura più vasta. Che la chiama, ridendo amaramente, *anima del mondo*.
+Poi Pietro le dice una cosa che non ha mai detto a nessuno.
 
-Caterina non ride.
+Una notte, nell'inverno del 2013 — tre anni dopo Elena — Pietro era andato a Bergamo Alta, da una vecchia amica di Elena. Era tornato in macchina nella notte. Alle tre era fermo sul lato dell'autostrada, troppo stanco per guidare, e si era addormentato un attimo, e in quel sonno breve aveva *visto Elena*. Non sognata: vista. Lei era lì. Gli aveva detto una cosa breve, e una cosa precisa che lui non sapeva — un dettaglio di un loro viaggio di trent'anni prima, una bottega a Lisbona, qualcosa che Elena ricordava e lui aveva dimenticato. Si era svegliato. Era tornato a casa. Aveva ritrovato, nel diario di viaggio di Elena, la stessa bottega, lo stesso nome.
+
+Da allora Pietro non era più stato un uomo che credeva o non credeva. Era stato un uomo che *sapeva* — e che non sapeva cosa fare di quello che sapeva.
+
+Pietro pronuncia, per la prima volta, la parola *campo*. E quella più grande: *anima del mondo*. Non ride amaramente, questa volta. Lo dice piano, come si dice una cosa che si sa.
 
 **Cosa il lettore scopre**:
-- Pietro ha un suo lutto irrisolto. È stato lui stesso un sognatore, prima del decoder.
-- Il romanzo dà la sua ipotesi metafisica più ampia — ma per voce di Pietro, non per voce narrante. Resta ipotesi.
+- Pietro non ha un'ipotesi: ha una testimonianza. Il livello profondo del campo è già stato attraversato, una volta, da lui.
+- Il romanzo da qui in poi non lascia più aperta la possibilità: la conferma per voce indiretta, attraverso un'esperienza vissuta.
+- Pietro ha aspettato quindici anni per dirlo a qualcuno. Ha aspettato Caterina.
 
-**Tensione**: Caterina prende una decisione. Vuole entrare nel cortile da sveglia, in modo lucido. Vuole parlare con l'uomo. Pietro le dice che non funziona così.
+**Tensione**: Caterina prende una decisione. Vuole entrare nel cortile in modo lucido. Pietro le dice una cosa difficile: *"Non funziona se vai a chiedere. Funziona solo se vai a posare."* Caterina dice di sì, ma sa che non saprà farlo.
 
 ---
 
@@ -292,56 +298,72 @@ Caterina non ride.
 **Quando**: 28 maggio. Notte.
 **Dove**: laboratorio Bovisa.
 
-**Scena**: Caterina, da sola in laboratorio, di notte. Si auto-impone una sessione lunga. Si addormenta. Il decoder scrive a lungo. Lei sogna il cortile in modo più nitido che mai. Cammina nel ballatoio. Vede Aldo, fermo accanto al pozzo, giacca verde. Lei gli si avvicina. Lo guarda in faccia per la prima volta.
+**Scena**: Caterina, da sola in laboratorio, di notte. Si auto-impone una sessione lunga. Si stende sotto la cuffia. Prima di chiudere gli occhi, fa una cosa che non aveva mai fatto: si dice ad alta voce, senza pubblico, di non chiedere niente. Di lasciare che venga quello che viene. È la prima volta che riesce a dirlo. Pietro le ha detto una settimana prima che bisogna posare la richiesta. Caterina, fino a stasera, non sapeva cosa volesse dire.
 
-Aldo non parla. La guarda.
+Si addormenta. Il decoder scrive a lungo. Lei sogna il cortile in modo più nitido che mai. Cammina nel ballatoio. Vede Aldo, fermo accanto al pozzo, giacca verde. Lei gli si avvicina. Lo guarda in faccia per la prima volta.
 
-Caterina gli chiede: *"Stai aspettando me?"*
-Aldo: *"No. Sto aspettando di essere lasciato andare."*
-Caterina: *"Da chi?"*
-Aldo indica il pozzo.
+Aldo la guarda. Caterina non chiede niente.
 
-Caterina si avvicina al pozzo, guarda dentro. Vede sé stessa, in attesa, da decenni. Vede Pietro accanto a lei, anche lui in attesa. Vede Maria. Vede Lucia. Vede Anna. Vede Stefano. Vede Tommy, che salta il pozzo e ride. Vede una folla che non finisce.
+Dopo un tempo che nel sogno non si misura, Aldo dice una frase:
+*"La medaglia di Rebecca, prima che andassero via, lei la mise nel buco sotto il quarto gradino. Dalla parte della cantina. Da allora io la cerco quando passa il caldo. Dille a chi la cerca dove sta."*
 
-Capisce: ciò che impedisce ad Aldo di andarsene non è Aldo. Sono loro che lo trattengono. Sono loro che lo cercano. Lui è solo il punto in cui il campo restituisce una forma.
+Caterina, ancora dentro il sogno, ripete la frase nella testa per non perderla.
 
-Caterina chiude gli occhi nel sogno. Quando li riapre, il cortile è vuoto.
+Poi Aldo dice una seconda cosa, più piano:
+*"L'uomo che lei cerca non è qui. È più in là."*
+
+E indica oltre il ballatoio, oltre il pozzo, oltre la geometria del cortile. Una direzione che nel sogno c'è, anche se nel mondo non esisterebbe.
+
+Caterina prova a chiedere: dove? Ma sa già che non riceverà risposta a una domanda. Tace.
+
+Aldo aggiunge: *"Quando vuoi andare, non venire qui. Va' a casa. Dormi. È vicino."*
+
+Il sogno finisce.
+
+Caterina si sveglia in laboratorio alle sette del mattino. Sola. Il decoder ha scritto, tra le altre parole: *medaglia / gradino / quarto / cantina*. E poi: *piu_in_la*.
 
 **Cosa il lettore scopre**:
-- Il "messaggio" del libro, ma in forma di immagine, non di tesi.
-- Aldo non era una presenza. Era una superficie su cui tutti riflettevano.
+- Il campo, a livello profondo, dà informazioni vere. Aldo conosce dettagli che nessun vivente conosce.
+- Esiste un "oltre" — il romanzo non lo nomina, ma lo indica.
+- Caterina ha cambiato postura. Ha smesso di chiedere. Per questo il campo si è aperto.
 
-**Tensione**: il sogno finisce. Caterina si sveglia in laboratorio. Sono le sette del mattino. È sola.
+**Verifica a posteriori (coda del capitolo)**: Caterina chiama Pietro, gli racconta. Pietro fa una ricerca veloce nei suoi archivi. Le interviste Begni del '76 menzionavano una "medaglia che il portinaio dice di cercare ancora". Mai nessuno aveva trovato dove. Quel pomeriggio Pietro chiama un collega della sovrintendenza che, durante la demolizione del '96, aveva fotografato lo scantinato. Nelle foto, il quarto gradino aveva una cavità che era stata data per buona come un cedimento murario. Nessuno aveva guardato dentro.
 
 ---
 
 ## Capitolo 12 — Quello che lasciamo
-**Lunghezza target**: 1.300 parole.
+**Lunghezza target**: 1.500 parole.
 **POV**: Caterina.
-**Quando**: 30 maggio – 1 giugno.
-**Dove**: laboratorio Bovisa, casa di Pietro, via Padova 137, cimitero di Lambrate, casa di Caterina.
+**Quando**: 30 maggio – 8 giugno.
+**Dove**: scantinato di via Padova, laboratorio Bovisa, casa di Caterina, cimitero di Lambrate.
 
-**Scena, in cinque movimenti brevi**:
+**Scena, in cinque movimenti**:
 
-1. **Laboratorio**: Caterina spegne il decoder. Stacca i cavi. Scrive una mail al direttore: il progetto, per ragioni metodologiche, va fermato. Non motiva oltre.
+1. **Scantinato di via Padova**. Il collega della sovrintendenza fa avere a Pietro la chiave dell'accesso tecnico al sottoterra del nuovo condominio (dove sono rimaste alcune strutture del precedente edificio). Caterina e Pietro scendono. Trovano il quarto gradino. Dentro la cavità, avvolta in uno straccio nerastro, c'è la medaglia: una piccola medaglia d'oro con incise tre lettere ebraiche e una data, 1898. È quella di Rebecca Foa, che a sua volta l'aveva ereditata. Aldo, nei trentacinque anni dalla scomparsa dei Foa alla sua morte, l'aveva cercata "quando passava il caldo" — cioè quando l'umidità saliva — e non l'aveva mai trovata. Sapeva che era lì. Non sapeva esattamente dove. Caterina la tiene in mano. Non piange. Pietro sì.
 
-2. **Da Pietro**: porta a Pietro il blocco di carta da macellaio, con tutti i disegni del cortile. *"Tienili tu."* Pietro lo accetta. Non si dicono molto altro. Sull'uscita Caterina lo abbraccia, brevemente, per la prima volta in dieci anni di conoscenza.
+2. **Laboratorio Bovisa**. Caterina spegne il decoder. Stacca i cavi. Scrive una mail al direttore: il progetto, per come l'avevano impostato, è arrivato dove poteva. Chiede di sospenderlo. Non motiva oltre.
 
-3. **Via Padova 137**: davanti al condominio nuovo. Caterina tocca il muro dove c'è la targa Foa. Resta un minuto. Non dice niente che il lettore senta.
+3. **Casa, via Tirano**. Caterina rientra. Si fa una doccia, mangia poco. Si stende sul divano, vestita. Non mette la cuffia. Non c'è decoder, non c'è strumento. Si addormenta come la gente normale.
 
-4. **Cimitero di Lambrate, tomba di Marco**: Caterina si siede. Le porta un mazzetto di violette, che ha imparato da Pietro. Gli dice una cosa che il lettore non sente.
+   Sogna. Ma non sogna il cortile. Sogna un posto che non riconosce eppure sa, qualcosa che è soltanto suo e di Marco — non un luogo geografico, una specie di angolo di luce. Marco è lì. Non sembra invecchiato, non sembra giovane: sembra come quando andava bene. Le dice una cosa che il lettore *sente*: ricorda una promessa che si erano fatti nel 2017 a Padova, in una trattoria vicino al Prato della Valle, una sera di settembre. Caterina aveva detto a Marco una frase. Marco le aveva risposto un'altra. Caterina, in nove mesi di lutto, non si era mai ricordata di quella sera. Marco le ripete la sua risposta di allora. Caterina, nel sogno, la riconosce. *Sì, è vero. Mi ero dimenticata.*
 
-5. **Casa, via Tirano**: Caterina rientra a casa. È pomeriggio. Si fa una doccia, mangia. Si addormenta sul divano, vestita. Per la prima volta da agosto dorme tre ore filate senza sognare.
+   Marco non dice altro. Lei nemmeno. Stanno lì un po'. Poi il sogno si dissolve come si dissolvono certi sogni — non finisce, si fa più trasparente.
 
-**Coda — una settimana dopo**: il direttore le scrive: una ex paziente, Maria Cossutti, ha chiesto di poter fare un'ultima sessione. Maria al telefono dice a Caterina di aver fatto un sogno strano. Caterina la ascolta. Risponde una frase che non risolve niente. Saluta. Chiude il telefono. Va alla finestra. Sotto, due bambini giocano nel cortile della palazzina. Uno salta sopra a una griglia di scarico, come se fosse un pozzo.
+4. **Cimitero di Lambrate**. Il giorno dopo. Caterina alla tomba di Marco. Porta un mazzetto di violette, che ha imparato da Pietro. Si siede sul marmo accanto alla lapide. Parla a voce bassa, gli dice una cosa che il lettore non sente. Resta un'ora. Il vento muove le foglie del platano sopra di lei. Forse non è niente. Forse non è niente in modo diverso da prima.
 
-Il libro chiude su Caterina che li guarda.
+5. **Casa di Pietro, sera**. Caterina porta a Pietro il blocco di carta da macellaio, con tutti i disegni del cortile. *"Tienili tu."* Pietro lo accetta. Le mostra una scheda nuova, aggiunta all'archivio: *Via Padova 137. Bernardi A., portinaio. In attesa: 1944–. Risolto: maggio 2026.* Non si dicono molto altro. Sull'uscita Caterina lo abbraccia, brevemente, per la prima volta in dieci anni di conoscenza.
+
+**Coda — una settimana dopo**: in laboratorio rivede i dati di un nuovo studio appena cominciato — un altro decoder, un'altra città, un'altra Bovisa. Tra i flussi, un pattern. Una piazza, una panchina, una donna che torna. Caterina lo guarda a lungo. Non riavvia il programma proprio. Scrive un'email a Pietro, con allegate le stampe. Una sola riga: *Per la tua collezione.*
+
+Va alla finestra. Sotto, due bambini giocano nel cortile della palazzina. Uno salta sopra a una griglia di scarico, come se fosse un pozzo. L'altro lo aspetta, ridendo, dalla parte opposta. Caterina li guarda. Non sa cosa cercheranno quei bambini, da grandi. Sa che li aspetterà qualcosa.
+
+Il libro chiude qui.
 
 **Cosa il lettore esce con**:
-- Caterina ha posato.
-- Il campo continua a esistere.
-- Qualcuno, ovunque, sta ricominciando a sognarlo.
-- Non sappiamo se Caterina lo sognerà di nuovo.
+- Il campo ha dato una prova concreta e ricuperabile (la medaglia Foa) — chiusura di un'attesa di otto decenni.
+- Caterina ha incontrato Marco in un modo che il romanzo presenta come reale, non come riflesso.
+- Il mondo è più grande di come ci era stato detto, ed è abitato.
+- Caterina è in pace, e nello stesso tempo torna a essere viva fra i vivi.
 
 ---
 
@@ -365,8 +387,8 @@ Il libro chiude su Caterina che li guarda.
 | Int. Maria | 350 |
 | Cap. 10 | 1.700 |
 | Cap. 11 | 1.700 |
-| Cap. 12 | 1.300 |
-| **Totale** | **~20.000** |
+| Cap. 12 | 1.500 |
+| **Totale** | **~20.200** |
 
 Margine sopra il minimo (15.000) e sopra il target stretto (17.000). Probabile riduzione del 10–15% in revisione, atterrando intorno a 17.000–18.000.
 
@@ -380,6 +402,6 @@ Margine sopra il minimo (15.000) e sopra il target stretto (17.000). Probabile r
 - Cap. 5–6: il nome *Marco* compare nel decoder, ma il narratore non spiega come. Il lettore lo accetta perché è già dentro il pattern.
 - Cap. 7: Tommy è un bambino vero, non un bambino-saggio. Gioca. Mangia un Kinder Cereali. Non ha la "purezza dell'infanzia" da romanzo brutto.
 - Int. Aldo: meno è meglio. Niente "una mano callosa sulla spalla del bambino Foa".
-- Cap. 10: la parola *campo* finalmente esce. La parola *anima del mondo* esce solo qui, una volta.
-- Cap. 11: l'incontro con Aldo non è soprannaturale né rassicurante. È esatto, secco, breve.
-- Cap. 12: niente epifanie. Solo gesti.
+- Cap. 10: la parola *campo* esce qui per la prima volta. *Anima del mondo* esce qui, una sola volta, da Pietro. La testimonianza di Pietro (l'incontro con Elena in autostrada) va raccontata asciutta, senza enfasi mistica.
+- Cap. 11: l'incontro con Aldo è esatto, secco, breve. L'informazione che Aldo dà a Caterina (medaglia, quarto gradino) è la prova che il romanzo si concede di dare al lettore: una sola, verificabile, mai più ripetuta.
+- Cap. 12: il ritrovamento della medaglia è un gesto, non un trionfo. L'incontro con Marco è un'immagine, non un dialogo lungo. Niente discorsi sull'aldilà. Solo: ricordo, riconoscimento, pace.

@@ -16,11 +16,12 @@ Documento di riferimento canonico. Tutto ciò che viene scritto nei capitoli dev
 **Cosa il romanzo NON è**:
 - Non è un giallo: non c'è un colpevole da scoprire.
 - Non è un romanzo storico: la storia c'è ma è sfondo, non centro.
-- Non è un romanzo consolatorio: il finale non promette riunione con i morti.
-- Non è un romanzo sulla Shoah: la vicenda storica è una delle tante che il "campo" raccoglie, non l'oggetto del libro.
+- Non è un romanzo di consolazione facile: la consolazione c'è, ma costa — chiede a chi cerca di posare le proprie pretese.
+- Non è un romanzo sulla Shoah: la vicenda storica è una delle tante che il *campo* raccoglie, non l'oggetto del libro.
+- Non è un romanzo religioso: non prende posizione su Dio, su un aldilà come luogo, sulla persistenza individuale delle anime.
 
 **Cosa il romanzo È**:
-È un libro sull'attesa. Sulle attese non concluse che lasciamo nei luoghi. Su una donna che capisce, attraverso una tecnologia che funziona troppo bene, che ciò che resta dei morti non è ciò che speriamo, ma ciò che noi non riusciamo a posare.
+È un libro sull'attesa che può diventare passaggio. Su una donna che attraverso una tecnologia che funziona troppo bene scopre che i luoghi conservano un'eco delle vite — e che dietro quell'eco, per chi sa cercare senza pretendere, c'è qualcosa di più vasto: una struttura del mondo che la scienza non ha ancora nominato e che il romanzo non cerca di spiegare, solo di lasciar vedere. Il libro non chiude le porte. Le apre.
 
 ---
 
@@ -145,34 +146,45 @@ Il decoder è il cuore tecnico del romanzo. **Regole inderogabili**:
 
 ## 6. La "regola spirituale" — il **campo**
 
-Questa è la parte speculativa. **Regole inderogabili**:
+Questa è la parte speculativa. Il romanzo lavora su **due livelli**: un livello superficiale (residuo, riflesso) e un livello profondo (soglia, passaggio). Le regole sono inderogabili. La scoperta del livello profondo è graduale e arriva nei capitoli 10–12.
 
 ### Cos'è
-- Esiste un fenomeno che il romanzo chiama, nel corso della narrazione, **campo di residuo** (Pietro lo chiama anche "memoria d'indirizzo").
-- È una struttura informazionale **legata ai luoghi**, non alle persone.
+- Esiste un fenomeno che il romanzo chiama **campo di residuo** (Pietro lo chiama anche *memoria d'indirizzo*).
+- È una struttura informazionale legata ai luoghi, non alle persone.
 - Si forma quando un pattern emotivo intenso e non-risolto (attesa, lutto, longing) viene sostenuto in un luogo nel tempo, di solito da uno o più individui per anni o decenni.
-- È **passivo**: non ha volontà, non ha coscienza. È una "stagnazione" informazionale, come una macchia di umido.
-- Decade lentamente. Pattern molto forti durano secoli.
+- A livello superficiale è una "stagnazione" informazionale, come una macchia di umido. Decade lentamente. Pattern molto forti durano secoli.
+- **Ma a livello più profondo, il campo è una soglia**: sotto il residuo c'è qualcosa di più vasto, una struttura distribuita che Pietro nominerà *anima del mondo*. Il romanzo non offre una teoria completa di cosa sia. Le mostra solo che esiste, e come si comporta.
 
 ### Come si manifesta
 - La maggior parte delle persone non lo percepisce.
-- Persone che si trovano in uno stato emotivo affine al pattern (chi aspetta qualcuno, chi non ha elaborato un lutto, chi è in una fase di transizione) possono inconsapevolmente "sintonizzarsi", soprattutto in REM.
-- Il decoder, registrando le firme neurali in REM, riesce a catturare le tracce del campo come se fossero frammenti onirici del soggetto.
-- **La prossimità geografica conta**: entro circa 500–800 metri il segnale è più forte.
+- Persone in uno stato emotivo affine al pattern (chi aspetta qualcuno, chi non ha elaborato un lutto, chi è in una fase di transizione) possono inconsapevolmente sintonizzarsi, soprattutto in REM.
+- Il decoder, registrando le firme neurali in REM, cattura le tracce del campo come se fossero frammenti onirici del soggetto.
+- La prossimità geografica conta: entro 500–800 metri il segnale è più forte. Ma la connessione affettiva (un proprio caro che ha vissuto lì) può sostituire la prossimità.
 
-### Cosa il campo PUÒ fare
-- Restituire forme, parole, atmosfere associate al pattern originario (il cortile, il pozzo, la parola "ballatoio", l'uomo in giacca verde).
-- Creare un **avatar** del soggetto che ha generato il pattern, ricostruito dal materiale residuo. L'avatar **non è la persona**. È una mimesi.
-- Riflettere al sognatore i propri stati d'animo: chi "incontra" il campo tende a vedersi rispecchiato.
+### Cosa il campo PUÒ fare — livello superficiale
+- Restituire forme, parole, atmosfere associate al pattern originario (il cortile, il pozzo, la parola *ballatoio*, l'uomo in giacca verde).
+- Creare un **avatar** del soggetto che ha generato il pattern, ricostruito dal materiale residuo.
+- Riflettere al sognatore i propri stati d'animo: chi "incontra" il campo con la postura sbagliata (chi pretende, chi cerca prove) tende a vedersi rispecchiato e basta.
 
-### Cosa il campo NON PUÒ fare
-- **Non comunica informazioni nuove**. Non sa cose che la persona originaria non sapeva.
-- **Non è l'anima dei morti**. Aldo non è "lì dentro". Lì dentro c'è la sua attesa.
-- **Non risponde a domande**. Quando sembra rispondere, sta solo riflettendo ciò che il sognatore porta con sé.
-- **Non concede contatto con i propri cari morti**. Quando Caterina vedrà Marco nel campo, sarà solo la sua attesa che le restituisce un'immagine.
+### Cosa il campo PUÒ fare — livello profondo
+- Per chi vi entra con la **postura giusta** (senza pretendere, senza voler dimostrare, posando la propria richiesta), il campo apre passaggi brevi verso qualcosa di reale.
+- Può restituire **informazioni vere** che la persona originaria conosceva e nessun vivente sa più (Aldo che rivela a Caterina dove Rebecca Foa nascose la medaglietta — verificabile a posteriori in archivio).
+- Può permettere **incontri reali** con i propri cari morti — non con il loro corpo, non con la loro mente storica, ma con il nucleo essenziale di chi sono stati, che la struttura del mondo conserva.
+- Il livello profondo è raro, non si chiama a comando, non si dimostra come un esperimento. Si lascia accadere.
 
-### Hypothesis di Pietro
-Pietro, nel capitolo 10, propone — senza dimostrarlo — che il campo potrebbe non essere solo locale. Che potrebbe essere parte di una struttura più vasta. Una sorta di "anima del mondo" distribuita, frammentaria, viva. Il romanzo **non conferma** questa ipotesi. La lascia aperta.
+### Cosa il campo NON PUÒ / non fa
+- Non è un canale di servizio. Non risponde alla scienza positivista o alla pretesa.
+- Non garantisce conforto: l'incontro vero può essere più severo della consolazione cercata.
+- Non sostituisce la religione. Il romanzo non dice nulla su Dio, sull'aldilà come luogo, su una persistenza individuale "eterna". Resta su un piano filosofico-speculativo.
+- Non è ripetibile a piacere: chi lo ha attraversato una volta non torna necessariamente.
+
+### L'arco della scoperta nel romanzo
+- **Capitoli 1–5**: il campo si manifesta a livello superficiale. Caterina e Pietro lavorano sull'ipotesi del residuo.
+- **Capitolo 6**: Caterina sogna Marco. Pietro accenna alla regola del riflesso, ma con cautela ("a volte sotto il riflesso c'è una porta — devi cambiare la domanda"). Caterina rifiuta, vuole prove.
+- **Capitoli 7–9**: il campo si rivela stratificato, popolato di pattern multipli. Tommy parla con Aldo. Maria vede una donna che non è lei.
+- **Capitolo 10**: Pietro non porta più un'ipotesi. Porta una **testimonianza**: lui stesso ha avuto un incontro reale con Elena nel campo, anni fa, una volta sola. Non lo aveva mai detto a nessuno. Da qui in poi l'*anima del mondo* non è più solo speculazione.
+- **Capitolo 11**: Caterina entra lucidamente nel cortile. Aldo le dà un'informazione vera (medaglietta Foa). Le dice anche: *"Lui non è qui. È più in là."* Indica oltre il cortile.
+- **Capitolo 12**: Caterina spegne il decoder, va a casa, dorme senza cuffia. Sogna un luogo che non è il cortile. Lì incontra Marco. L'incontro è reale, asciutto, breve. Caterina ne esce in pace.
 
 ---
 
@@ -226,11 +238,12 @@ Termini da usare uguali in tutto il romanzo (evitare varianti):
 
 ## 10. Temi (per orientamento, non da declamare)
 
-- L'attesa come prigione che si lascia in eredità ai luoghi.
-- La differenza tra ciò che resta dei morti e ciò che noi proiettiamo su quel resto.
-- Il dolore come forma di sintonizzazione: chi soffre vede cose che gli altri non vedono — e questo non è un dono.
-- La memoria storica e la memoria personale come uno stesso fenomeno fisico.
-- La scelta finale: continuare ad aspettare (diventando noi stessi un campo per qualcuno che verrà dopo) o posare.
+- L'attesa come prigione che può aprirsi: i luoghi conservano le nostre attese, e in certi punti quelle attese diventano membrane verso qualcos'altro.
+- La differenza tra cercare con avidità (ricevere solo il proprio riflesso) e cercare con disponibilità (ricevere qualcosa di vero).
+- Il dolore come forma di sintonizzazione: chi soffre vede cose che gli altri non vedono — e quel vedere, se attraversato con cura, può non essere solo un peso.
+- La memoria storica e la memoria personale come uno stesso fenomeno fisico-informazionale.
+- L'idea che il mondo sia più grande di come la scienza materialista lo descrive — e che quel "più grande" non sia separato dalla scienza, ma una sua continuazione che ancora ci sfugge.
+- La scelta finale di Caterina: smettere di chiedere prove, posare, e ricevere ciò che già la stava aspettando.
 
 ---
 
