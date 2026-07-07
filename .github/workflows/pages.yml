@@ -1,8 +1,9 @@
 name: Deploy su GitHub Pages
 
+# Avvio solo manuale: GitHub Pages richiede un repository pubblico (o un
+# piano a pagamento). Se il repository diventa pubblico, lancia questo
+# workflow dalla scheda Actions per pubblicare la pagina.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
