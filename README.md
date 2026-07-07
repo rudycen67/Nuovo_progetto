@@ -13,14 +13,33 @@ tag NFC con il lettore del cellulare.
 - La pagina deve essere aperta tramite **HTTPS** (requisito di sicurezza del
   browser)
 
-### Come provarla
+### Come provarla senza pubblicarla online
 
-Il modo più semplice è pubblicarla con **GitHub Pages**:
+Web NFC funziona solo in un contesto sicuro (HTTPS oppure `localhost`), quindi
+non basta aprire il file direttamente. Il modo più semplice è servire la
+pagina da `localhost` sul telefono stesso con **Termux**:
 
-1. Su GitHub vai in **Settings → Pages**
-2. In "Source" scegli il branch e la cartella root (`/`)
-3. Apri l'indirizzo `https://<utente>.github.io/Nuovo_progetto/` con Chrome
-   sul telefono
+1. Installa **Termux** dal Play Store (o da F-Droid)
+2. Scarica `index.html` da GitHub sul telefono (finisce nella cartella
+   Download)
+3. In Termux esegui:
+
+   ```sh
+   pkg install python
+   termux-setup-storage   # consenti l'accesso ai file
+   cd storage/downloads
+   python -m http.server 8080
+   ```
+
+4. Apri **Chrome** sul telefono e vai su `http://localhost:8080/index.html`
+
+### In alternativa: GitHub Pages
+
+Se un giorno il repository diventa **pubblico** (Pages sui repo privati
+richiede un piano a pagamento), c'è già il workflow
+`.github/workflows/pages.yml`: lancialo dalla scheda **Actions** ("Deploy su
+GitHub Pages" → "Run workflow") e la pagina sarà pubblicata su
+`https://rudycen67.github.io/Nuovo_progetto/`.
 
 ### Funzioni
 
