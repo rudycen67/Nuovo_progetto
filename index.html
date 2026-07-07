@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a73e8">
+  <title>Lettore NFC</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: #f1f3f4;
+      color: #202124;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px;
+    }
+
+    header {
+      text-align: center;
+      margin: 8px 0 20px;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: #1a73e8;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      color: #5f6368;
+      margin-top: 4px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+      padding: 16px;
+      width: 100%;
+      max-width: 480px;
+      margin-bottom: 16px;
+    }
+
+    .card h2 {
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #fff;
+      background: #1a73e8;
+      transition: background 0.2s;
+    }
+
+    button:active {
+      background: #1558b0;
+    }
+
+    button:disabled {
+      background: #bdc1c6;
+      cursor: not-allowed;
+    }
+
+    button.secondary {
+      background: #34a853;
+      margin-top: 8px;
+    }
+
+    button.stop {
+      background: #ea4335;
+    }
+
+    #status {
+      margin-top: 12px;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      background: #e8f0fe;
+      color: #1a56a8;
+      display: none;
+    }
+
+    #status.visible {
+      display: block;
+    }
+
+    #status.error {
+      background: #fce8e6;
+      color: #c5221f;
+    }
+
+    #status.success {
+      background: #e6f4ea;
+      color: #1e7e34;
+    }
+
+    #status.scanning {
+      background: #e8f0fe;
+      color: #1a56a8;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      border: 1px solid #dadce0;
+      border-radius: 8px;
+      resize: vertical;
+      min-height: 70px;
+      margin-bottom: 10px;
+    }
+
+    textarea:focus {
+      outline: 2px solid #1a73e8;
+      border-color: transparent;
+    }
+
+    #log {
+      list-style: none;
+    }
+
+    #log li {
+      border-bottom: 1px solid #e8eaed;
+      padding: 10px 0;
+      font-size: 0.9rem;
+      word-break: break-word;
+    }
+
+    #log li:last-child {
+      border-bottom: none;
+    }
+
+    #log .time {
+      color: #5f6368;
+      font-size: 0.75rem;
+    }
+
+    #log .serial {
+      font-family: monospace;
+      color: #1a73e8;
+      font-size: 0.8rem;
+    }
+
+    #log .record {
+      margin-top: 4px;
+      padding: 6px 8px;
+      background: #f8f9fa;
+      border-radius: 6px;
+    }
+
+    #log .record .type {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: #5f6368;
+      letter-spacing: 0.5px;
+    }
+
+    #log .empty {
+      color: #5f6368;
+      text-align: center;
+      padding: 16px 0;
+    }
+
+    #unsupported {
+      display: none;
+      background: #fce8e6;
+      color: #c5221f;
+      border-radius: 12px;
+      padding: 16px;
+      width: 100%;
+      max-width: 480px;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      font-size: 0.75rem;
+      color: #5f6368;
+      text-align: center;
+      margin-top: auto;
+      padding-top: 16px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📡 Lettore NFC</h1>
+    <p>Leggi e scrivi tag NFC dal browser</p>
+  </header>
+
+  <div id="unsupported">
+    <strong>⚠️ Web NFC non disponibile.</strong><br>
+    Questa pagina funziona solo con <strong>Chrome su Android</strong> (versione 89 o successiva),
+    su un telefono dotato di NFC, e deve essere aperta tramite <strong>HTTPS</strong>.
+  </div>
+
+  <div class="card">
+    <h2>Lettura</h2>
+    <button id="btnScan">Avvia scansione</button>
+    <div id="status"></div>
+  </div>
+
+  <div class="card">
+    <h2>Scrittura</h2>
+    <textarea id="writeText" placeholder="Testo da scrivere sul tag..."></textarea>
+    <button id="btnWrite" class="secondary">Scrivi sul tag</button>
+  </div>
+
+  <div class="card">
+    <h2>Tag letti</h2>
+    <ul id="log">
+      <li class="empty">Nessun tag letto finora.</li>
+    </ul>
+  </div>
+
+  <footer>
+    Ricorda: attiva l'NFC nelle impostazioni del telefono.<br>
+    Avvicina il tag al retro del telefono per leggerlo.
+  </footer>
+
+  <script>
+    const btnScan = document.getElementById('btnScan');
+    const btnWrite = document.getElementById('btnWrite');
+    const writeText = document.getElementById('writeText');
+    const statusBox = document.getElementById('status');
+    const log = document.getElementById('log');
+
+    let scanController = null;
+
+    function setStatus(message, kind) {
+      statusBox.textContent = message;
+      statusBox.className = 'visible' + (kind ? ' ' + kind : '');
+    }
+
+    function clearStatus() {
+      statusBox.className = '';
+      statusBox.textContent = '';
+    }
+
+    if (!('NDEFReader' in window)) {
+      document.getElementById('unsupported').style.display = 'block';
+      btnScan.disabled = true;
+      btnWrite.disabled = true;
+    }
+
+    function decodeRecord(record) {
+      const decoder = new TextDecoder(record.encoding || 'utf-8');
+      switch (record.recordType) {
+        case 'text':
+          return { type: 'Testo', value: decoder.decode(record.data) };
+        case 'url':
+          return { type: 'URL', value: decoder.decode(record.data) };
+        case 'mime':
+          return { type: 'MIME (' + record.mediaType + ')', value: decoder.decode(record.data) };
+        case 'empty':
+          return { type: 'Vuoto', value: '(record vuoto)' };
+        default:
+          try {
+            return { type: record.recordType, value: decoder.decode(record.data) };
+          } catch {
+            return { type: record.recordType, value: '(dati binari, ' + record.data.byteLength + ' byte)' };
+          }
+      }
+    }
+
+    function addLogEntry(serialNumber, records) {
+      const empty = log.querySelector('.empty');
+      if (empty) empty.remove();
+
+      const li = document.createElement('li');
+
+      const time = document.createElement('div');
+      time.className = 'time';
+      time.textContent = new Date().toLocaleTimeString('it-IT');
+      li.appendChild(time);
+
+      const serial = document.createElement('div');
+      serial.className = 'serial';
+      serial.textContent = 'Seriale: ' + (serialNumber || 'non disponibile');
+      li.appendChild(serial);
+
+      if (records.length === 0) {
+        const rec = document.createElement('div');
+        rec.className = 'record';
+        rec.textContent = 'Tag vuoto (nessun record NDEF)';
+        li.appendChild(rec);
+      }
+
+      for (const record of records) {
+        const decoded = decodeRecord(record);
+        const rec = document.createElement('div');
+        rec.className = 'record';
+
+        const type = document.createElement('div');
+        type.className = 'type';
+        type.textContent = decoded.type;
+        rec.appendChild(type);
+
+        const value = document.createElement('div');
+        if (decoded.type === 'URL') {
+          const a = document.createElement('a');
+          a.href = decoded.value;
+          a.textContent = decoded.value;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          value.appendChild(a);
+        } else {
+          value.textContent = decoded.value;
+        }
+        rec.appendChild(value);
+
+        li.appendChild(rec);
+      }
+
+      log.prepend(li);
+      if (navigator.vibrate) navigator.vibrate(100);
+    }
+
+    async function startScan() {
+      scanController = new AbortController();
+      try {
+        const reader = new NDEFReader();
+
+        reader.onreading = (event) => {
+          setStatus('✅ Tag letto! Avvicina un altro tag per continuare.', 'success');
+          addLogEntry(event.serialNumber, [...event.message.records]);
+        };
+
+        reader.onreadingerror = () => {
+          setStatus('Impossibile leggere questo tag. Riprova.', 'error');
+        };
+
+        await reader.scan({ signal: scanController.signal });
+
+        setStatus('📡 Scansione attiva: avvicina un tag NFC al telefono...', 'scanning');
+        btnScan.textContent = 'Ferma scansione';
+        btnScan.classList.add('stop');
+      } catch (error) {
+        scanController = null;
+        if (error.name === 'NotAllowedError') {
+          setStatus('Permesso NFC negato. Consenti l\'accesso NFC a questa pagina nelle impostazioni del sito.', 'error');
+        } else {
+          setStatus('Errore: ' + error.message, 'error');
+        }
+      }
+    }
+
+    function stopScan() {
+      if (scanController) {
+        scanController.abort();
+        scanController = null;
+      }
+      btnScan.textContent = 'Avvia scansione';
+      btnScan.classList.remove('stop');
+      clearStatus();
+    }
+
+    btnScan.addEventListener('click', () => {
+      if (scanController) {
+        stopScan();
+      } else {
+        startScan();
+      }
+    });
+
+    btnWrite.addEventListener('click', async () => {
+      const text = writeText.value.trim();
+      if (!text) {
+        setStatus('Inserisci prima il testo da scrivere.', 'error');
+        return;
+      }
+      try {
+        setStatus('📡 Avvicina il tag NFC per scrivere...', 'scanning');
+        btnWrite.disabled = true;
+        const writer = new NDEFReader();
+        await writer.write(text);
+        setStatus('✅ Testo scritto sul tag!', 'success');
+        if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+      } catch (error) {
+        if (error.name === 'NotAllowedError') {
+          setStatus('Permesso NFC negato.', 'error');
+        } else {
+          setStatus('Errore in scrittura: ' + error.message, 'error');
+        }
+      } finally {
+        btnWrite.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
