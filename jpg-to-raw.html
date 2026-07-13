@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a73e8">
+  <title>Convertitore JPG → RAW</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: #f1f3f4;
+      color: #202124;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px;
+    }
+
+    header {
+      text-align: center;
+      margin: 8px 0 20px;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: #1a73e8;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      color: #5f6368;
+      margin-top: 4px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+      padding: 16px;
+      width: 100%;
+      max-width: 480px;
+      margin-bottom: 16px;
+    }
+
+    .card h2 {
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #fff;
+      background: #1a73e8;
+      transition: background 0.2s;
+    }
+
+    button:active {
+      background: #1558b0;
+    }
+
+    button:disabled {
+      background: #bdc1c6;
+      cursor: not-allowed;
+    }
+
+    #dropZone {
+      border: 2px dashed #bdc1c6;
+      border-radius: 8px;
+      padding: 28px 16px;
+      text-align: center;
+      color: #5f6368;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    #dropZone.dragover {
+      border-color: #1a73e8;
+      background: #e8f0fe;
+    }
+
+    #preview {
+      display: none;
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 12px;
+    }
+
+    #fileInfo {
+      display: none;
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: #5f6368;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      color: #5f6368;
+      margin: 10px 0 4px;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      font-family: inherit;
+      border: 1px solid #dadce0;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    select:focus {
+      outline: 2px solid #1a73e8;
+      border-color: transparent;
+    }
+
+    #convertBtn {
+      margin-top: 14px;
+    }
+
+    #status {
+      margin-top: 12px;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      background: #e8f0fe;
+      color: #1a56a8;
+      display: none;
+    }
+
+    #status.visible {
+      display: block;
+    }
+
+    #status.error {
+      background: #fce8e6;
+      color: #c5221f;
+    }
+
+    #status.success {
+      background: #e6f4ea;
+      color: #1e7e34;
+    }
+
+    #resultCard {
+      display: none;
+    }
+
+    #resultCard table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    #resultCard td {
+      padding: 6px 0;
+      border-bottom: 1px solid #e8eaed;
+    }
+
+    #resultCard tr:last-child td {
+      border-bottom: none;
+    }
+
+    #resultCard td:first-child {
+      color: #5f6368;
+    }
+
+    #resultCard td:last-child {
+      text-align: right;
+      font-family: monospace;
+    }
+
+    .hint {
+      font-size: 0.8rem;
+      color: #5f6368;
+      line-height: 1.5;
+      margin-top: 10px;
+    }
+
+    .hint code {
+      background: #f8f9fa;
+      padding: 1px 4px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      word-break: break-all;
+    }
+
+    .note {
+      background: #fef7e0;
+      color: #7a5d00;
+      border-radius: 12px;
+      padding: 16px;
+      width: 100%;
+      max-width: 480px;
+      margin-bottom: 16px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      font-size: 0.75rem;
+      color: #5f6368;
+      text-align: center;
+      margin-top: auto;
+      padding-top: 16px;
+      line-height: 1.5;
+    }
+
+    footer a {
+      color: #1a73e8;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🖼️ Convertitore JPG → RAW</h1>
+    <p>Esporta i pixel di un JPG come dati grezzi, tutto nel browser</p>
+  </header>
+
+  <div class="note">
+    <strong>Nota:</strong> un vero file RAW fotografico (.CR2, .NEF, .ARW…) contiene i
+    dati del sensore della fotocamera, che il JPG ha già scartato: non si possono
+    ricostruire. Questa pagina esporta i <strong>pixel decompressi</strong> in formato
+    <strong>.raw</strong> (Photoshop Raw): dati grezzi senza intestazione, apribili in
+    Photoshop, GIMP e ImageMagick con i parametri indicati dopo la conversione.
+  </div>
+
+  <div class="card">
+    <h2>1. Scegli l'immagine</h2>
+    <div id="dropZone">
+      Tocca per scegliere un file JPG<br>
+      oppure trascinalo qui
+    </div>
+    <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" hidden>
+    <img id="preview" alt="Anteprima immagine">
+    <div id="fileInfo"></div>
+  </div>
+
+  <div class="card">
+    <h2>2. Formato di uscita</h2>
+    <label for="channels">Canali</label>
+    <select id="channels">
+      <option value="rgb" selected>RGB (3 canali, a colori)</option>
+      <option value="rgba">RGBA (4 canali, con trasparenza)</option>
+      <option value="gray">Scala di grigi (1 canale)</option>
+    </select>
+
+    <label for="depth">Profondità</label>
+    <select id="depth">
+      <option value="8" selected>8 bit per canale</option>
+      <option value="16">16 bit per canale (little-endian)</option>
+    </select>
+
+    <button id="convertBtn" disabled>Converti e scarica .raw</button>
+    <div id="status"></div>
+  </div>
+
+  <div class="card" id="resultCard">
+    <h2>Parametri per riaprire il file</h2>
+    <table>
+      <tr><td>Larghezza</td><td id="outWidth"></td></tr>
+      <tr><td>Altezza</td><td id="outHeight"></td></tr>
+      <tr><td>Canali</td><td id="outChannels"></td></tr>
+      <tr><td>Profondità</td><td id="outDepth"></td></tr>
+      <tr><td>Intestazione</td><td>0 byte</td></tr>
+      <tr><td>Ordine byte</td><td>little-endian (IBM PC)</td></tr>
+      <tr><td>Dimensione file</td><td id="outSize"></td></tr>
+    </table>
+    <div class="hint">
+      In <strong>Photoshop</strong>: Apri → seleziona il file .raw → inserisci
+      larghezza, altezza e canali qui sopra.<br>
+      Con <strong>ImageMagick</strong>:<br>
+      <code id="magickCmd"></code>
+    </div>
+  </div>
+
+  <footer>
+    La conversione avviene interamente sul tuo dispositivo:<br>
+    nessuna immagine viene caricata su internet.<br>
+    <a href="index.html">← Lettore NFC</a>
+  </footer>
+
+  <script>
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const preview = document.getElementById('preview');
+    const fileInfo = document.getElementById('fileInfo');
+    const channelsSel = document.getElementById('channels');
+    const depthSel = document.getElementById('depth');
+    const convertBtn = document.getElementById('convertBtn');
+    const statusBox = document.getElementById('status');
+    const resultCard = document.getElementById('resultCard');
+
+    let loadedImage = null;   // ImageBitmap o HTMLImageElement
+    let loadedName = '';
+
+    function setStatus(message, kind) {
+      statusBox.textContent = message;
+      statusBox.className = 'visible' + (kind ? ' ' + kind : '');
+    }
+
+    function clearStatus() {
+      statusBox.className = '';
+      statusBox.textContent = '';
+    }
+
+    function formatBytes(bytes) {
+      if (bytes < 1024) return bytes + ' B';
+      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+      return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    }
+
+    async function loadFile(file) {
+      if (!file) return;
+      if (!file.type.startsWith('image/')) {
+        setStatus('Il file scelto non è un\'immagine.', 'error');
+        return;
+      }
+      clearStatus();
+      resultCard.style.display = 'none';
+      try {
+        loadedImage = await createImageBitmap(file);
+      } catch {
+        setStatus('Impossibile leggere questa immagine.', 'error');
+        return;
+      }
+      loadedName = file.name;
+      preview.src = URL.createObjectURL(file);
+      preview.style.display = 'block';
+      fileInfo.style.display = 'block';
+      fileInfo.textContent = file.name + ' — ' + loadedImage.width + '×' +
+        loadedImage.height + ' px, ' + formatBytes(file.size);
+      convertBtn.disabled = false;
+    }
+
+    dropZone.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', () => loadFile(fileInput.files[0]));
+
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('dragover');
+    });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      loadFile(e.dataTransfer.files[0]);
+    });
+
+    function extractPixels(image) {
+      const canvas = document.createElement('canvas');
+      canvas.width = image.width;
+      canvas.height = image.height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(image, 0, 0);
+      return ctx.getImageData(0, 0, image.width, image.height);
+    }
+
+    function buildRaw(imageData, channels, depth) {
+      const { data, width, height } = imageData;
+      const pixels = width * height;
+      const chCount = channels === 'rgba' ? 4 : channels === 'rgb' ? 3 : 1;
+      const out = depth === 16
+        ? new Uint16Array(pixels * chCount)
+        : new Uint8Array(pixels * chCount);
+
+      for (let i = 0; i < pixels; i++) {
+        const src = i * 4;
+        const dst = i * chCount;
+        if (channels === 'gray') {
+          // luminanza Rec. 601, la stessa usata da GIMP/ImageMagick
+          const g = Math.round(
+            0.299 * data[src] + 0.587 * data[src + 1] + 0.114 * data[src + 2]
+          );
+          out[dst] = depth === 16 ? g * 257 : g;
+        } else {
+          for (let c = 0; c < chCount; c++) {
+            const v = data[src + c];
+            out[dst + c] = depth === 16 ? v * 257 : v;
+          }
+        }
+      }
+      return out;
+    }
+
+    convertBtn.addEventListener('click', () => {
+      if (!loadedImage) return;
+      const channels = channelsSel.value;
+      const depth = parseInt(depthSel.value, 10);
+
+      setStatus('Conversione in corso…');
+      convertBtn.disabled = true;
+
+      // setTimeout per lasciare aggiornare l'interfaccia prima del lavoro pesante
+      setTimeout(() => {
+        try {
+          const imageData = extractPixels(loadedImage);
+          const raw = buildRaw(imageData, channels, depth);
+          const blob = new Blob([raw.buffer], { type: 'application/octet-stream' });
+
+          const baseName = loadedName.replace(/\.[^.]+$/, '') || 'immagine';
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = baseName + '.raw';
+          a.click();
+          URL.revokeObjectURL(a.href);
+
+          const chCount = channels === 'rgba' ? 4 : channels === 'rgb' ? 3 : 1;
+          const chLabel = channels === 'rgba' ? '4 (RGBA)'
+            : channels === 'rgb' ? '3 (RGB)' : '1 (grigi)';
+          document.getElementById('outWidth').textContent = imageData.width + ' px';
+          document.getElementById('outHeight').textContent = imageData.height + ' px';
+          document.getElementById('outChannels').textContent = chLabel;
+          document.getElementById('outDepth').textContent = depth + ' bit';
+          document.getElementById('outSize').textContent = formatBytes(blob.size);
+
+          const magickFmt = channels === 'rgba' ? 'rgba' : channels === 'rgb' ? 'rgb' : 'gray';
+          document.getElementById('magickCmd').textContent =
+            'magick -size ' + imageData.width + 'x' + imageData.height +
+            ' -depth ' + depth +
+            (depth === 16 ? ' -endian LSB' : '') +
+            ' ' + magickFmt + ':' + baseName + '.raw ' + baseName + '.png';
+
+          resultCard.style.display = 'block';
+          setStatus('✅ File .raw scaricato! Parametri per riaprirlo qui sotto.', 'success');
+        } catch (error) {
+          setStatus('Errore durante la conversione: ' + error.message, 'error');
+        } finally {
+          convertBtn.disabled = false;
+        }
+      }, 50);
+    });
+  </script>
+</body>
+</html>
