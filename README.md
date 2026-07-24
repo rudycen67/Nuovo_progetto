@@ -69,8 +69,9 @@ viene mai caricata su alcun server.
 - La pagina va servita da un server web (non aperta come `file://`), perché
   deve scaricare i file del modello con `fetch`. Vale lo stesso metodo Termux
   descritto sopra (scarica anche la cartella `upscaler/`), oppure GitHub Pages
-- Serve una connessione internet al primo avvio per scaricare il runtime
-  onnxruntime-web dal CDN; il modello (~5 MB) invece è servito dal sito stesso
+- Non serve internet una volta scaricato il sito: sia il modello (~5 MB) sia
+  il runtime onnxruntime-web (cartella `upscaler/ort/`) sono inclusi nel
+  repository
 - Le immagini più grandi di 1024 px sul lato lungo vengono ridotte prima
   dell'elaborazione per non esaurire la memoria del browser
 - Funziona su qualunque browser moderno, anche desktop (a differenza del

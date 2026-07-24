@@ -277,10 +277,10 @@
 
   <footer>
     Modello: Real-ESRGAN-General-x4v3 (ONNX, float32) eseguito con onnxruntime-web.<br>
-    La prima elaborazione è più lenta perché scarica il runtime e carica il modello.
+    Tutto gira in locale: nessun dato viene inviato a server esterni.
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/ort.min.js"></script>
+  <script src="upscaler/ort/ort.min.js"></script>
   <script>
     const MODEL_DIR = 'upscaler/';
     const MODEL_FILE = 'real_esrgan_general_x4v3.onnx';
@@ -308,7 +308,7 @@
     let session = null;
     let sourceImage = null;
 
-    ort.env.wasm.wasmPaths = 'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/';
+    ort.env.wasm.wasmPaths = new URL('upscaler/ort/', location.href).href;
 
     function setStatus(message, kind) {
       statusBox.textContent = message;
