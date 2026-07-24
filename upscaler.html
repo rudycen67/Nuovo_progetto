@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a73e8">
+  <title>Upscaler immagini (Real-ESRGAN ×4)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: #f1f3f4;
+      color: #202124;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px;
+    }
+
+    header {
+      text-align: center;
+      margin: 8px 0 20px;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: #1a73e8;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      color: #5f6368;
+      margin-top: 4px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+      padding: 16px;
+      width: 100%;
+      max-width: 640px;
+      margin-bottom: 16px;
+    }
+
+    .card h2 {
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #fff;
+      background: #1a73e8;
+      transition: background 0.2s;
+    }
+
+    button:active {
+      background: #1558b0;
+    }
+
+    button:disabled {
+      background: #bdc1c6;
+      cursor: not-allowed;
+    }
+
+    button.secondary {
+      background: #34a853;
+      margin-top: 8px;
+    }
+
+    #status {
+      margin-top: 12px;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      background: #e8f0fe;
+      color: #1a56a8;
+      display: none;
+    }
+
+    #status.visible {
+      display: block;
+    }
+
+    #status.error {
+      background: #fce8e6;
+      color: #c5221f;
+    }
+
+    #status.success {
+      background: #e6f4ea;
+      color: #1e7e34;
+    }
+
+    #status.working {
+      background: #e8f0fe;
+      color: #1a56a8;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .file-label {
+      display: block;
+      border: 2px dashed #dadce0;
+      border-radius: 8px;
+      padding: 24px 16px;
+      text-align: center;
+      color: #5f6368;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .file-label:hover, .file-label.dragover {
+      border-color: #1a73e8;
+      background: #e8f0fe;
+    }
+
+    #progressWrap {
+      display: none;
+      margin-top: 12px;
+    }
+
+    #progressWrap.visible {
+      display: block;
+    }
+
+    #progressBar {
+      height: 8px;
+      background: #e8eaed;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    #progressFill {
+      height: 100%;
+      width: 0%;
+      background: #1a73e8;
+      border-radius: 4px;
+      transition: width 0.15s;
+    }
+
+    #progressText {
+      font-size: 0.8rem;
+      color: #5f6368;
+      margin-top: 4px;
+      text-align: center;
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .preview-grid figure {
+      min-width: 0;
+    }
+
+    .preview-grid figcaption {
+      font-size: 0.75rem;
+      color: #5f6368;
+      text-align: center;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .preview-grid canvas, .preview-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      background:
+        repeating-conic-gradient(#e8eaed 0% 25%, #fff 0% 50%) 0 0 / 16px 16px;
+      image-rendering: pixelated;
+      display: block;
+    }
+
+    .dims {
+      font-size: 0.75rem;
+      color: #5f6368;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    .note {
+      font-size: 0.8rem;
+      color: #5f6368;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    .backlink {
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+
+    .backlink a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+
+    footer {
+      font-size: 0.75rem;
+      color: #5f6368;
+      text-align: center;
+      margin-top: auto;
+      padding-top: 16px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🖼️ Upscaler immagini ×4</h1>
+    <p>Real-ESRGAN-General-x4v3 · elaborazione locale nel browser</p>
+    <p class="backlink"><a href="index.html">← Torna al Lettore NFC</a></p>
+  </header>
+
+  <div class="card">
+    <h2>1. Scegli un'immagine</h2>
+    <label class="file-label" id="dropZone" for="fileInput">
+      📂 Tocca per scegliere un'immagine<br>
+      <small>oppure trascinala qui (PNG, JPG, WebP...)</small>
+    </label>
+    <input type="file" id="fileInput" accept="image/*">
+    <div id="status"></div>
+  </div>
+
+  <div class="card" id="workCard" style="display:none">
+    <h2>2. Ingrandisci</h2>
+    <button id="btnUpscale">Ingrandisci ×4</button>
+    <div id="progressWrap">
+      <div id="progressBar"><div id="progressFill"></div></div>
+      <div id="progressText"></div>
+    </div>
+    <div class="preview-grid">
+      <figure>
+        <figcaption>Originale</figcaption>
+        <canvas id="srcCanvas"></canvas>
+        <div class="dims" id="srcDims"></div>
+      </figure>
+      <figure>
+        <figcaption>Risultato ×4</figcaption>
+        <canvas id="dstCanvas"></canvas>
+        <div class="dims" id="dstDims"></div>
+      </figure>
+    </div>
+    <button id="btnDownload" class="secondary" style="display:none">💾 Scarica PNG</button>
+    <p class="note">
+      L'immagine non lascia mai il tuo dispositivo: il modello gira interamente
+      nel browser. Immagini grandi richiedono più tempo (l'elaborazione avviene
+      a blocchi di 128×128 pixel).
+    </p>
+  </div>
+
+  <footer>
+    Modello: Real-ESRGAN-General-x4v3 (ONNX, float32) eseguito con onnxruntime-web.<br>
+    La prima elaborazione è più lenta perché scarica il runtime e carica il modello.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/ort.min.js"></script>
+  <script>
+    const MODEL_DIR = 'upscaler/';
+    const MODEL_FILE = 'real_esrgan_general_x4v3.onnx';
+    const DATA_FILE = 'real_esrgan_general_x4v3.data';
+    const TILE = 128;      // dimensione fissa dell'input del modello
+    const SCALE = 4;
+    const PAD = 8;         // sovrapposizione fra tessere per evitare cuciture
+    const CORE = TILE - 2 * PAD;
+    const MAX_SIDE = 1024; // limite prudente per non saturare la memoria
+
+    const fileInput = document.getElementById('fileInput');
+    const dropZone = document.getElementById('dropZone');
+    const statusBox = document.getElementById('status');
+    const workCard = document.getElementById('workCard');
+    const btnUpscale = document.getElementById('btnUpscale');
+    const btnDownload = document.getElementById('btnDownload');
+    const srcCanvas = document.getElementById('srcCanvas');
+    const dstCanvas = document.getElementById('dstCanvas');
+    const srcDims = document.getElementById('srcDims');
+    const dstDims = document.getElementById('dstDims');
+    const progressWrap = document.getElementById('progressWrap');
+    const progressFill = document.getElementById('progressFill');
+    const progressText = document.getElementById('progressText');
+
+    let session = null;
+    let sourceImage = null;
+
+    ort.env.wasm.wasmPaths = 'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/';
+
+    function setStatus(message, kind) {
+      statusBox.textContent = message;
+      statusBox.className = 'visible' + (kind ? ' ' + kind : '');
+    }
+
+    function clearStatus() {
+      statusBox.className = '';
+      statusBox.textContent = '';
+    }
+
+    function setProgress(done, total) {
+      progressWrap.classList.add('visible');
+      progressFill.style.width = (100 * done / total).toFixed(1) + '%';
+      progressText.textContent = 'Blocco ' + done + ' di ' + total;
+    }
+
+    async function loadSession() {
+      if (session) return session;
+      setStatus('⏳ Caricamento del modello (circa 5 MB)...', 'working');
+      const [modelResp, dataResp] = await Promise.all([
+        fetch(MODEL_DIR + MODEL_FILE),
+        fetch(MODEL_DIR + DATA_FILE)
+      ]);
+      if (!modelResp.ok || !dataResp.ok) {
+        throw new Error('impossibile scaricare i file del modello');
+      }
+      const [modelBuf, dataBuf] = await Promise.all([
+        modelResp.arrayBuffer(),
+        dataResp.arrayBuffer()
+      ]);
+      session = await ort.InferenceSession.create(new Uint8Array(modelBuf), {
+        executionProviders: ['wasm'],
+        externalData: [{ path: DATA_FILE, data: new Uint8Array(dataBuf) }]
+      });
+      return session;
+    }
+
+    function loadImageFile(file) {
+      if (!file || !file.type.startsWith('image/')) {
+        setStatus('Scegli un file immagine valido.', 'error');
+        return;
+      }
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        URL.revokeObjectURL(url);
+        let w = img.naturalWidth;
+        let h = img.naturalHeight;
+        let resized = false;
+        if (Math.max(w, h) > MAX_SIDE) {
+          const f = MAX_SIDE / Math.max(w, h);
+          w = Math.max(1, Math.round(w * f));
+          h = Math.max(1, Math.round(h * f));
+          resized = true;
+        }
+        srcCanvas.width = w;
+        srcCanvas.height = h;
+        srcCanvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        sourceImage = { w, h };
+        srcDims.textContent = w + ' × ' + h + (resized ? ' (ridotta da ' + img.naturalWidth + ' × ' + img.naturalHeight + ')' : '');
+        dstCanvas.width = 0;
+        dstCanvas.height = 0;
+        dstDims.textContent = '';
+        btnDownload.style.display = 'none';
+        progressWrap.classList.remove('visible');
+        workCard.style.display = 'block';
+        setStatus(resized
+          ? 'Immagine ridotta a ' + w + '×' + h + ' per restare entro i limiti di memoria del browser.'
+          : 'Immagine pronta: ' + w + '×' + h + ' pixel.', 'success');
+      };
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        setStatus('Impossibile leggere questa immagine.', 'error');
+      };
+      img.src = url;
+    }
+
+    // Estrae una tessera TILE×TILE da (sx, sy) replicando i bordi se l'immagine
+    // è più piccola della tessera, e la converte in tensore CHW normalizzato.
+    function extractTile(srcData, w, h, sx, sy) {
+      const chw = new Float32Array(3 * TILE * TILE);
+      const plane = TILE * TILE;
+      for (let y = 0; y < TILE; y++) {
+        const py = Math.min(h - 1, Math.max(0, sy + y));
+        for (let x = 0; x < TILE; x++) {
+          const px = Math.min(w - 1, Math.max(0, sx + x));
+          const si = (py * w + px) * 4;
+          const di = y * TILE + x;
+          chw[di] = srcData[si] / 255;
+          chw[plane + di] = srcData[si + 1] / 255;
+          chw[2 * plane + di] = srcData[si + 2] / 255;
+        }
+      }
+      return chw;
+    }
+
+    // Converte l'output CHW 512×512 in ImageData RGBA.
+    function tensorToImageData(data) {
+      const size = TILE * SCALE;
+      const plane = size * size;
+      const out = new ImageData(size, size);
+      const px = out.data;
+      for (let i = 0; i < plane; i++) {
+        px[i * 4] = Math.min(255, Math.max(0, Math.round(data[i] * 255)));
+        px[i * 4 + 1] = Math.min(255, Math.max(0, Math.round(data[plane + i] * 255)));
+        px[i * 4 + 2] = Math.min(255, Math.max(0, Math.round(data[2 * plane + i] * 255)));
+        px[i * 4 + 3] = 255;
+      }
+      return out;
+    }
+
+    async function upscale() {
+      const { w, h } = sourceImage;
+      btnUpscale.disabled = true;
+      fileInput.disabled = true;
+      try {
+        const sess = await loadSession();
+        setStatus('🖼️ Elaborazione in corso...', 'working');
+
+        const srcData = srcCanvas.getContext('2d').getImageData(0, 0, w, h).data;
+        dstCanvas.width = w * SCALE;
+        dstCanvas.height = h * SCALE;
+        const dstCtx = dstCanvas.getContext('2d');
+
+        const cols = Math.ceil(w / CORE);
+        const rows = Math.ceil(h / CORE);
+        const total = cols * rows;
+        let done = 0;
+        setProgress(0, total);
+
+        for (let row = 0; row < rows; row++) {
+          const y0 = row * CORE;
+          // La tessera copre il blocco utile più il margine di sovrapposizione,
+          // riallineata al bordo se sporge dall'immagine.
+          const sy = Math.max(0, Math.min(y0 - PAD, h - TILE));
+          for (let col = 0; col < cols; col++) {
+            const x0 = col * CORE;
+            const sx = Math.max(0, Math.min(x0 - PAD, w - TILE));
+
+            const input = new ort.Tensor('float32',
+              extractTile(srcData, w, h, sx, sy), [1, 3, TILE, TILE]);
+            const output = await sess.run({ image: input });
+            const tile = tensorToImageData(output.upscaled_image.data);
+
+            const cw = Math.min(CORE, w - x0);
+            const ch = Math.min(CORE, h - y0);
+            dstCtx.putImageData(tile, sx * SCALE, sy * SCALE,
+              (x0 - sx) * SCALE, (y0 - sy) * SCALE, cw * SCALE, ch * SCALE);
+
+            done++;
+            setProgress(done, total);
+            // Lascia respirare l'interfaccia fra un blocco e l'altro.
+            await new Promise(r => setTimeout(r, 0));
+          }
+        }
+
+        dstDims.textContent = (w * SCALE) + ' × ' + (h * SCALE);
+        btnDownload.style.display = 'block';
+        setStatus('✅ Fatto! Immagine ingrandita a ' + (w * SCALE) + '×' + (h * SCALE) + '.', 'success');
+      } catch (error) {
+        setStatus('Errore: ' + error.message, 'error');
+      } finally {
+        btnUpscale.disabled = false;
+        fileInput.disabled = false;
+      }
+    }
+
+    fileInput.addEventListener('change', () => loadImageFile(fileInput.files[0]));
+
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('dragover');
+    });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      loadImageFile(e.dataTransfer.files[0]);
+    });
+
+    btnUpscale.addEventListener('click', upscale);
+
+    btnDownload.addEventListener('click', () => {
+      dstCanvas.toBlob((blob) => {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'upscaled_x4.png';
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+      }, 'image/png');
+    });
+  </script>
+</body>
+</html>

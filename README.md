@@ -47,3 +47,31 @@ GitHub Pages" → "Run workflow") e la pagina sarà pubblicata su
   telefono; la pagina mostra numero seriale e contenuto (testo, URL, dati)
 - **Scrittura**: inserisci un testo, tocca "Scrivi sul tag" e avvicina il tag
 - **Storico**: l'elenco dei tag letti nella sessione, con orario
+
+## 🖼️ Upscaler immagini ×4 (Real-ESRGAN)
+
+`upscaler.html` è una pagina web che ingrandisce le immagini di 4 volte usando
+il modello **Real-ESRGAN-General-x4v3** (formato ONNX, nella cartella
+`upscaler/`). Il modello viene eseguito **interamente nel browser** con
+[onnxruntime-web](https://onnxruntime.ai/docs/tutorials/web/): l'immagine non
+viene mai caricata su alcun server.
+
+### Come si usa
+
+1. Apri `upscaler.html` (servita via HTTP/HTTPS, vedi sotto)
+2. Scegli o trascina un'immagine (PNG, JPG, WebP...)
+3. Tocca **"Ingrandisci ×4"** e attendi: l'elaborazione avviene a blocchi di
+   128×128 pixel, con una barra di avanzamento
+4. Scarica il risultato in PNG con **"Scarica PNG"**
+
+### Note
+
+- La pagina va servita da un server web (non aperta come `file://`), perché
+  deve scaricare i file del modello con `fetch`. Vale lo stesso metodo Termux
+  descritto sopra (scarica anche la cartella `upscaler/`), oppure GitHub Pages
+- Serve una connessione internet al primo avvio per scaricare il runtime
+  onnxruntime-web dal CDN; il modello (~5 MB) invece è servito dal sito stesso
+- Le immagini più grandi di 1024 px sul lato lungo vengono ridotte prima
+  dell'elaborazione per non esaurire la memoria del browser
+- Funziona su qualunque browser moderno, anche desktop (a differenza del
+  lettore NFC)
