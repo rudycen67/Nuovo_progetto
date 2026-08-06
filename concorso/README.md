@@ -14,12 +14,13 @@ immaginario di Torrefonda: una fiaba moderna alla Calvino/Buzzati.
 | `L_accordatore_di_moke.docx` | Word — A4, Arial 12, interlinea 1.5, margini 3 cm |
 | `L_accordatore_di_moke.pdf` | PDF con la stessa impaginazione |
 
-Battute: **5.017** spazi inclusi (limite: max 6.000) ✔
+Battute: **4.994** spazi inclusi (limite: max 6.000) ✔
 
-Seconda stesura dopo revisione editoriale: finale asciugato (chiusura sulla moka
-aperta, senza morale), ritorno alle moke per scelta e non per la tormenta,
-contraddittorio alla nostalgia (il farmacista Gerosa), dubbio di Anselmo,
-nipote presente fin dall'inizio.
+Terza stesura dopo due giri di revisione editoriale: finale asciugato (chiusura
+sulla moka aperta, senza morale), ritorno alle moke per scelta e non per la
+tormenta, contraddittorio alla nostalgia (il farmacista Gerosa), dubbio di
+Anselmo, nipote presente fin dall'inizio, eliminati i residui di narratore che
+spiega.
 
 ## Versione alternativa: "La voce della moka" (realistica/intimista)
 
