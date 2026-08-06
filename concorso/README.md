@@ -22,6 +22,11 @@ tormenta, contraddittorio alla nostalgia (il farmacista Gerosa), dubbio di
 Anselmo, nipote presente fin dall'inizio, eliminati i residui di narratore che
 spiega.
 
+Nota linguistica: il plurale "moke" (l'italiano normativo vorrebbe "le moka",
+invariabile) è una **scelta deliberata** — registro domestico e parlato, coerente
+con la voce da apologo del racconto. Versione definitiva: non necessita di
+ulteriori revisioni.
+
 ## Versione alternativa: "La voce della moka" (realistica/intimista)
 
 Prima stesura, in prima persona, dal taglio realistico.
