@@ -19,7 +19,7 @@ lagrime inutili."* (Caterina Percoto a Carlo Tenca, 1872-73 ca.)
 
 ## Conformità al bando
 
-- **Racconto**: 6.893 battute spazi inclusi (limite categoria I.A.: max 10.000) ✔
+- **Racconto**: 6.790 battute spazi inclusi (limite categoria I.A.: max 10.000) ✔
 - **Nota metodologica**: 927 battute (limite: 1.000) ✔ — dichiara l'uso di Claude
   (Anthropic) e la scelta metodologica
 - **Testo anonimo**: nessun nome dell'autore né riferimento identificativo ✔
