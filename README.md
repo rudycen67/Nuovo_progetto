@@ -1,5 +1,14 @@
 # Nuovo_progetto
 
+## ⚛️ Teorie della meccanica quantistica
+
+In [`docs/teorie-quantistiche.md`](docs/teorie-quantistiche.md) c'è un
+quaderno di esplorazione sulle interpretazioni della meccanica
+quantistica (Copenaghen, molti mondi, onda pilota, collasso oggettivo,
+relazionale, QBism...) e sulle frontiere speculative (gravità
+quantistica, principio olografico, ER=EPR), con una tabella comparativa
+e letture consigliate.
+
 ## 📡 Lettore NFC (pagina web)
 
 `index.html` è una pagina web che usa l'API **Web NFC** per leggere e scrivere
