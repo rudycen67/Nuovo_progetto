@@ -47,3 +47,51 @@ GitHub Pages" → "Run workflow") e la pagina sarà pubblicata su
   telefono; la pagina mostra numero seriale e contenuto (testo, URL, dati)
 - **Scrittura**: inserisci un testo, tocca "Scrivi sul tag" e avvicina il tag
 - **Storico**: l'elenco dei tag letti nella sessione, con orario
+
+## 💳 Identificare una scheda a contatti (SIM, SAM, pay-TV) con `identifica_scheda.py`
+
+Lo script `identifica_scheda.py` legge l'**ATR** (Answer To Reset) di una
+scheda a contatti e lo confronta con il database pubblico
+[smartcard_list.txt](https://pcsc-tools.apdu.fr/smartcard_list.txt): dice
+la famiglia della scheda (SIM/USIM, SAM MIFARE, Java Card, Irdeto, Nagra,
+Conax, Viaccess...) e decodifica protocollo e byte storici. Il database viene
+scaricato al primo avvio e salvato accanto allo script.
+
+Serve Python 3. Per la lettura automatica dal lettore serve anche pyscard:
+
+```sh
+pip install pyscard
+```
+
+### Con lo Smartreader V2 Argolis
+
+Il lettore non è un lettore CCID standard (usa un chip seriale FTDI,
+`lsusb` lo mostra come `0403:6001`), quindi:
+
+- **Windows**: installa il driver PC/SC di Argolis, inserisci la scheda ed
+  esegui `python identifica_scheda.py`. Lo script elenca i lettori PC/SC,
+  legge l'ATR e stampa il risultato.
+- **Linux**: il lettore funziona solo con OSCam (`protocol = smartreader`).
+  Avvia OSCam con la scheda inserita, poi estrai l'ATR dal log:
+
+  ```sh
+  python3 identifica_scheda.py --oscam-log /var/log/oscam.log
+  ```
+
+### Con qualsiasi altro lettore CCID (Linux/Windows/macOS)
+
+```sh
+sudo apt install pcscd          # solo Linux
+python3 identifica_scheda.py
+```
+
+### Se hai già l'ATR
+
+```sh
+python3 identifica_scheda.py --atr "3B 9F 95 80 1F C7 80 31 E0 73 FE 21 1B 64 ..."
+```
+
+Nota: una SIM o un SAM in formato plug-in (ID-000) va inserita in un
+adattatore formato carta di credito, altrimenti i contatti non toccano. L'ATR
+identifica il sistema operativo/famiglia della scheda, non il produttore del
+silicio (Infineon, NXP, ST...), salvo casi noti come JCOP.
